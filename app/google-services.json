@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1039212811830",
+    "project_id": "csusb-campus"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039212811830:android:5145f5e9613b2842",
+        "android_client_info": {
+          "package_name": "com.example.justd.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039212811830-io3f18r4k9nqg2s4i9rlvs2vdhq4pvfh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justd.myapplication",
+            "certificate_hash": "2ed08c8fdd64cc72a7f685119340f69fbeba4716"
+          }
+        },
+        {
+          "client_id": "1039212811830-5tjgt12f29i1frpoqbq4b7vfe5pbkis1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSJgXm05Nyzx9uXdKqxh6GLEp_kCogzAk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
