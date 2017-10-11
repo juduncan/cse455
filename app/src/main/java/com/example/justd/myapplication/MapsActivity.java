@@ -42,5 +42,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng csusb = new LatLng(34.182400, -117.324498);
         mMap.addMarker(new MarkerOptions().position(csusb).title("CSUSB Campus"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(csusb));
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
     }
+
+
+
 }
