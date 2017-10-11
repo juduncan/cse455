@@ -14,9 +14,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user taps the login button **/
-    public void sendMessage(View view) {
+    public void goMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
+
+    public void goMenu(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+
 }
 //
