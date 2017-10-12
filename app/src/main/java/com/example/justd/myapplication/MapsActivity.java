@@ -2,6 +2,7 @@ package com.example.justd.myapplication;
 
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -18,13 +19,21 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 
 import java.io.IOException;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
 
     private GoogleMap mMap;
+    GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +72,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(csusb));
         mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
 
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addApi(LocationServices.API)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .build();
+       /** mGoogleApiClient.connect();              if we can get location services permissions the map will follow the location like a navigator.. just have to uncomment **/
 
 
     }
@@ -92,16 +107,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+    LocationRequest mLocationRequest;
 
 
+    @Override
+    public void onConnected(Bundle bundle) {
+            mLocationRequest = LocationRequest.create();
+            mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            mLocationRequest.setInterval(1000);
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,mLocationRequest,this);
 
+    }
 
+    @Override
+    public void onConnectionSuspended(int i) {
 
+    }
 
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
 
+    }
 
-
-
+    @Override
+    public void onLocationChanged(Location location) {
+        if(location==null){
+            Toast.makeText(this,"cannot get location..",Toast.LENGTH_LONG).show();
+        }else{
+            LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
+            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,17);
+            mMap.animateCamera(update);
+        }
+    }
 }
 
 
