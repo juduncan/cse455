@@ -42,22 +42,13 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-
-
-        <intent-filter>
-            <action android:name="com.example.justd.myapplication.MapsActivity" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+        <activity android:name="com.example.justd.myapplication.MapsActivity"></activity>
 
 
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
+            android:label="@string/title_activity_settings">
+            //android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.justd.myapplication.MainActivity" />

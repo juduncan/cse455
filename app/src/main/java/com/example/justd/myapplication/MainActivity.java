@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -18,30 +21,41 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends AppCompatActivity  {
 
     private SignInButton SignIn;
     private GoogleApiClient googleApiClient;
     private static final int REQ_CODE = 9001;
-
+    private static final String TAG = "MyActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SignIn = (SignInButton) findViewById(R.id.bn_login);
-        SignIn.setOnClickListener(this);
-        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,signInOptions).build();
+        // SignIn = (SignInButton) findViewById(R.id.bn_login);
+        // SignIn.setOnClickListener(this);
+        // GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        // googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,signInOptions).build();
 
 
-        if (googleServicesAvail()) {
-            Toast.makeText(this, "You have Google Play Services YAY", Toast.LENGTH_LONG).show();
+        // if (googleServicesAvail()) {
+        //     Toast.makeText(this, "You have Google Play Services YAY", Toast.LENGTH_LONG).show();
+        // }
 
-        }
+         }
+
+    public void goMap(View view) {
+        Intent goToMap = new Intent(MainActivity.this, MapsActivity.class);
+        startActivity(goToMap);
+        Log.d(TAG, "goMap: was clicked");
     }
 
-
-    public boolean googleServicesAvail() {
+    public void goMenu(View view) {
+        Intent goToMenu = new Intent(MainActivity.this, MapsActivity.class);
+        startActivity(goToMenu);
+        Log.d(TAG, "goMenu: was clicked");
+    }
+}
+    /*public boolean googleServicesAvail() {
         GoogleApiAvailability api = GoogleApiAvailability.getInstance();
         int isAvailable = api.isGooglePlayServicesAvailable(this);
         if (isAvailable == ConnectionResult.SUCCESS) {
@@ -57,28 +71,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * Called when the user taps the login button
-     **/
-    public void goMap(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-    }
-
-    public void goMenu(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
-    }
 
 
-    @Override
+
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.bn_login:
-                SignIn();
+                //SignIn();
                 break;
         }
 
     }
+}
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -117,5 +121,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
-
+        */
 //
