@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void goMenu(View view) {
-        Intent goToMenu = new Intent(MainActivity.this, MapsActivity.class);
+        Intent goToMenu = new Intent(MainActivity.this, SettingsActivity.class);
         startActivity(goToMenu);
         Log.d(TAG, "goMenu: was clicked");
     }

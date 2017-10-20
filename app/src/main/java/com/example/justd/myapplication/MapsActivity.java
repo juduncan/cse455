@@ -70,14 +70,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(Library).title("Library"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(csusb));
-        mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(13.0f));
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(LocationServices.API)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
-       /** mGoogleApiClient.connect();              if we can get location services permissions the map will follow the location like a navigator.. just have to uncomment **/
+      /** mGoogleApiClient.connect();**/
 
 
     }
