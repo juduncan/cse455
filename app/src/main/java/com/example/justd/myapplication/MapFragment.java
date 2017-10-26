@@ -47,6 +47,8 @@ public class MapFragment extends Fragment  {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(" Map View");
+        getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
+
 
 
 
