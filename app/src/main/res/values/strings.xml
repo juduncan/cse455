@@ -90,4 +90,17 @@
     <string name="communicate">Communicate</string>
     <string name="share">Share</string>
     <string name="send">Send</string>
+
+    <string-array name="Planets">
+        <item>Classrooms</item>
+        <item>Services</item>
+        <item>Food</item>
+        <item>Clubs</item>
+        <item>Buildings</item>
+        <item>Departments</item>
+        <item>Parking lots</item>
+        <item>Common Areas</item>
+        <item>Shops</item>
+    </string-array>
+
 </resources>

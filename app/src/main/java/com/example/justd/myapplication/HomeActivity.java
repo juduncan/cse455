@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity
                 fragment = new MenuFragment();
                 break;
             case R.id.nav_menu2:
-                fragment = new ItemFragment();
+                fragment = new Menu2Fragment();
                 break;
 
         }
