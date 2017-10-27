@@ -43,11 +43,7 @@ public class MainActivity extends AppCompatActivity  {
 
          }
 
-    public void goMap(View view) {
-        Intent goToMap = new Intent(MainActivity.this, MapsActivity.class);
-        startActivity(goToMap);
-        Log.d(TAG, "goMap: was clicked");
-    }
+
 
     public void goMenu(View view) {
         Intent goToMenu = new Intent(MainActivity.this, HomeActivity.class);

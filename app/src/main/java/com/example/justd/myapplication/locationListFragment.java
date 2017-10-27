@@ -18,6 +18,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
@@ -35,4 +36,8 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
         Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
     }
+
+
+
+
 }
