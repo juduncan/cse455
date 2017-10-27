@@ -19,30 +19,43 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
 import java.util.List;
 
+import static com.example.justd.myapplication.R.id.map;
+
 /**
  * Created by justd on 10/23/2017.
  */
 
-public class MapFragment extends Fragment{
+public class MapFragment extends Fragment  {
+    View mGoogleMap;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.map_fragment, container   , false  );
+        return inflater.inflate(R.layout.map_fragment, container, false);
+
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(" Map View");
+        getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
+
+
+
+
     }
 
 
 
-    }
 
+
+}
