@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -36,7 +38,7 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        displaySelectedScreen(R.id.nav_map);
+        displaySelectedScreen(R.id.nav_menu2);
     }
 
     @Override
@@ -72,23 +74,30 @@ public class HomeActivity extends AppCompatActivity
     }
 
     public void displaySelectedScreen(int id){
+
         Fragment fragment = null;
+        ListFragment lfrag = null;
         switch(id){
             case R.id.nav_map:
                 fragment = new MapFragment();
                 break;
             case R.id.nav_menu:
-                fragment = new MenuFragment();
+                lfrag = new locationListFragment();
                 break;
             case R.id.nav_menu2:
                 fragment = new Menu2Fragment();
                 break;
 
         }
-
-        if(fragment != null) {
+         if(fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
+             ft.commit();
+
+        }
+        if(lfrag != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, lfrag);
             ft.commit();
 
         }
@@ -99,15 +108,17 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         displaySelectedScreen(id);
 
 
         return true;
     }
+
+
 }

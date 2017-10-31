@@ -1,11 +1,15 @@
 package com.example.justd.myapplication;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 /**
  * Created by justd on 10/23/2017.
@@ -24,4 +28,6 @@ public class MenuFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(" Menu View");
     }
+
+
 }

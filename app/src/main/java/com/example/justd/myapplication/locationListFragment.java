@@ -1,14 +1,13 @@
 package com.example.justd.myapplication;
 
-import android.app.ListFragment;
+
+import android.support.v4.app.ListFragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 /**
  * Created by justd on 10/26/2017.
@@ -34,9 +33,9 @@ public class locationListFragment extends ListFragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-        Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
-    }
 
+
+    }
 
 
 

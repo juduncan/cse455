@@ -6,6 +6,8 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -35,7 +38,7 @@ import static com.example.justd.myapplication.R.id.map;
 
 public class MapFragment extends Fragment  {
     View mGoogleMap;
-
+    private SupportMapFragment mSupportMapFragment;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,7 +50,38 @@ public class MapFragment extends Fragment  {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle(" Map View");
-        getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
+        getActivity().getSupportFragmentManager().findFragmentById(R.id.map1);
+
+
+
+
+        mSupportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map1);
+        if (mSupportMapFragment == null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            mSupportMapFragment = SupportMapFragment.newInstance();
+            fragmentTransaction.replace(R.id.map1, mSupportMapFragment).commit();
+        }
+
+        if (mSupportMapFragment != null)
+        {
+            mSupportMapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override public void onMapReady(GoogleMap googleMap) {
+                    if (googleMap != null) {
+
+                        googleMap.getUiSettings().setAllGesturesEnabled(true);
+
+                        LatLng csusb = new LatLng(34.1802966,-117.3256387);
+                        LatLng marker_latlng = new LatLng(34.180963,-117.3211841);
+                        googleMap.addMarker(new MarkerOptions().position(csusb).title("CSUSB Campus"));
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(marker_latlng).zoom(15.0f).build();
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+                        googleMap.moveCamera(cameraUpdate);
+
+                    }
+
+                }
+            });
 
 
 
@@ -58,4 +92,4 @@ public class MapFragment extends Fragment  {
 
 
 
-}
+}}

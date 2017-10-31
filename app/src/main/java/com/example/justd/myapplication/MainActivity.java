@@ -2,6 +2,7 @@ package com.example.justd.myapplication;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -41,9 +43,8 @@ public class MainActivity extends AppCompatActivity  {
         //     Toast.makeText(this, "You have Google Play Services YAY", Toast.LENGTH_LONG).show();
         // }
 
-         }
 
-
+    }
 
     public void goMenu(View view) {
         Intent goToMenu = new Intent(MainActivity.this, HomeActivity.class);
