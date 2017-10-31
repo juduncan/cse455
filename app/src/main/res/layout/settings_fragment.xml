@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="83dp"
+        android:layout_height="79dp"
+        android:checked="true"
+        android:button="@null"
+        android:background="?android:attr/listChoiceIndicatorMultiple"
+        map:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="134dp"
+        android:layout_marginRight="8dp"
+        map:layout_constraintRight_toRightOf="parent"
+        map:layout_constraintLeft_toRightOf="@+id/textView4"
+        android:layout_marginLeft="8dp"
+        map:layout_constraintHorizontal_bias="0.902"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        map:layout_constraintVertical_bias="0.346" />
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="83dp"
+        android:layout_height="79dp"
+        android:checked="true"
+        android:button="@null"
+        android:background="?android:attr/listChoiceIndicatorMultiple"
+        map:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="134dp"
+        android:layout_marginRight="8dp"
+        map:layout_constraintRight_toRightOf="parent"
+        map:layout_constraintLeft_toRightOf="@+id/textView6"
+        android:layout_marginLeft="8dp"
+        map:layout_constraintHorizontal_bias="0.868"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        map:layout_constraintVertical_bias="0.716" />
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="83dp"
+        android:layout_height="79dp"
+        android:checked="true"
+        android:button="@null"
+        android:background="?android:attr/listChoiceIndicatorMultiple"
+        map:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="134dp"
+        android:layout_marginRight="8dp"
+        map:layout_constraintRight_toRightOf="parent"
+        map:layout_constraintLeft_toRightOf="@+id/textView4"
+        android:layout_marginLeft="8dp"
+        map:layout_constraintHorizontal_bias="0.902"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        map:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textSize="40dp"
+        android:layout_marginLeft="80dp"
+        map:layout_constraintLeft_toLeftOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        map:layout_constraintVertical_bias="0.095"
+        android:layout_marginRight="8dp"
+        map:layout_constraintRight_toRightOf="parent"
+        map:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+    android:id="@+id/textView4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="My Events"
+        android:textSize="30dp"
+        android:layout_marginTop="8dp"
+        map:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:layout_marginBottom="8dp"
+        map:layout_constraintBottom_toTopOf="@+id/textView6"
+        map:layout_constraintVertical_bias="0.45"
+        android:layout_marginLeft="66dp"
+        map:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Campus Events"
+        android:textSize="30dp"
+        map:layout_constraintRight_toLeftOf="@+id/checkBox3"
+        android:layout_marginRight="12dp"
+        map:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="184dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Club Events"
+        android:textSize="30dp"
+        map:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="107dp"
+        android:layout_marginLeft="66dp"
+        map:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

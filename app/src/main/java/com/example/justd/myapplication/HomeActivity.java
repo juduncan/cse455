@@ -66,9 +66,6 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -86,6 +83,9 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_menu2:
                 fragment = new Menu2Fragment();
+                break;
+            case R.id.nav_manage:
+                fragment = new SettingsFragment();
                 break;
 
         }

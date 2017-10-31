@@ -8,28 +8,24 @@
             android:title="@string/map" />
         <item
             android:id="@+id/nav_menu"
-            android:icon="@drawable/ic_setting_light"
-            android:title="@string/menu" />
+            android:icon="@drawable/places_ic_search"
+            android:title="Find" />
         <item
             android:id="@+id/nav_menu2"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_2" />
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="Calendar" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/tools" />
+            android:icon="@drawable/ic_setting_dark"
+            android:title="Settings" />
     </group>
 
-    <item android:title="@string/communicate">
+    <item android:title="Bug Report">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/send" />
+                android:icon="@android:drawable/ic_dialog_email"
+                android:title="Email" />
         </menu>
     </item>
 
