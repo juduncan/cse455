@@ -8,6 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by justd on 10/26/2017.
@@ -26,14 +32,16 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.Planets, android.R.layout.simple_list_item_1);
+                R.array.Categories, android.R.layout.simple_list_item_1);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.Classrooms, android.R.layout.simple_list_item_1);
+        setListAdapter(adapter);
 
     }
 
