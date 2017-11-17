@@ -1,8 +1,10 @@
 package com.example.justd.myapplication;
 
 
+import android.content.Context;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,23 +30,66 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         return view;
     }
 
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.Categories, android.R.layout.simple_list_item_1);
+        String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
+
+        simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), menuItems);
         setListAdapter(adapter);
+
+
+       //final ArrayList<String> menuList = new ArrayList<String>();
+       // for (int i=0; i<menuItems.length; ++i){
+        //    menuList.add(menuItems[i]);
+       // }
+       // final StableArrayAdapter sadapter = new
+         //       StableArrayAdapter(getActivity(),R.layout.row_layout,R.id.label,menuList);
+        //setListAdapter(sadapter);
+       // ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
+              //  R.array.Categories, android.R.layout.simple_list_item_1);
+        //setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.Classrooms, android.R.layout.simple_list_item_1);
-        setListAdapter(adapter);
+        String item = (String) getListAdapter().getItem(position);
+        Log.d("Clicked: ", item);
+       // ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
+        //        R.array.Classrooms, R.layout.row_layout);
+        //setListAdapter(adapter);
 
     }
 
+    private class StableArrayAdapter extends ArrayAdapter<String> {
 
+        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
+        public StableArrayAdapter(Context context, int textViewResourceId, int test,
+                                  List<String> objects) {
+            super(context, textViewResourceId, objects);
+            for (int i = 0; i < objects.size(); ++i) {
+                mIdMap.put(objects.get(i), i);
+
+        }
+        }
+
+        @Override
+        public long getItemId(int position) {
+            String item = getItem(position);
+            return mIdMap.get(item);
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
+
+    }
 
 }
+
+
+

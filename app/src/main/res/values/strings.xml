@@ -113,4 +113,17 @@
         <item>Common Areas</item>
         <item>Shops</item>
     </string-array>
+
+    <string-array name="icon">
+        <item>Jack Brown</item>
+        <item>Library</item>
+        <item>Food</item>
+        <item>Clubs</item>
+        <item>Buildings</item>
+        <item>Departments</item>
+        <item>Parking lots</item>
+        <item>Common Areas</item>
+        <item>Shops</item>
+    </string-array>
+
 </resources>
