@@ -2,6 +2,9 @@ package com.example.justd.myapplication;
 
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,8 +37,8 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle(" Find Places");
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
-
         simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), menuItems);
         setListAdapter(adapter);
 
@@ -55,13 +58,36 @@ public class locationListFragment extends ListFragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
+        String[] placeholder = new String[]{};
+        String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         String item = (String) getListAdapter().getItem(position);
         Log.d("Clicked: ", item);
-       // ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-        //        R.array.Classrooms, R.layout.row_layout);
-        //setListAdapter(adapter);
+        switch (item) {
+            case "Buildings":
+                String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall"};
+                placeholder = buildings;
+                break;
+            case"Food":
+                String[] food = new String[]{".. back", "Pizza Hut", "Wing Stop", "Taco Bell"};
+                placeholder = food;
+                break;
+            case ".. back":
+                placeholder = menuItems;
+            default:
+                Fragment fragment = null;
+                fragment = new MapFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            placeholder = menuItems;
 
+
+        }
+            simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), placeholder);
+            setListAdapter(adapter);
     }
+
+
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 

@@ -14,19 +14,19 @@
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     android:weightSum="1">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="104dp"
-        android:layout_height="76dp"
-        android:paddingLeft="-40dp"
-        app:srcCompat="@mipmap/ic_csusb_logo" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Where its at"
+        android:paddingTop="0dp"
+        android:text="Coyote Maps"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="126dp"
+        android:layout_height="79dp"
+        android:paddingLeft="-40dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/textView"

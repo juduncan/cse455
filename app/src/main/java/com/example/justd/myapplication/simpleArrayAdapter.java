@@ -5,6 +5,7 @@ package com.example.justd.myapplication;
  */
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +33,13 @@ public class simpleArrayAdapter extends ArrayAdapter<String> {
         textView.setText(values[position]);
         // Change the icon for Windows and iPhone
         String s = values[position];
-       // if (s.startsWith("Windows7") || s.startsWith("iPhone")
-        //        || s.startsWith("Solaris")) {
-         //   imageView.setImageResource(R.drawable.no);
-        //} else {
-            imageView.setImageResource(R.drawable.common_google_signin_btn_icon_dark_normal);
-        //}
+        Log.d("value simpleadapter: ", s);
+       if (s.startsWith("Buildings") || s.startsWith("Food")|| s.startsWith("Services"))
+         {
+             imageView.setImageResource(R.drawable.mr_ic_play_light);
+         } else {
+        imageView.setImageResource(R.drawable.ic_action_navigate);
+        }
 
         return rowView;
     }

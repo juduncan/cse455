@@ -22,13 +22,14 @@
         android:layout_marginLeft="4px"
         android:layout_marginRight="10px"
         android:layout_marginTop="4px"
-        android:src="@drawable/places_ic_search" >
+        >
     </ImageView>
 
 <TextView
     android:id="@android:id/empty"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4px">
 </TextView>
 
 </LinearLayout>
