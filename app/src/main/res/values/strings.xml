@@ -125,5 +125,10 @@
         <item>Common Areas</item>
         <item>Shops</item>
     </string-array>
+    <string name="not_log_in">could not log in</string>
+    <string name="log_out">Log Out</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">could not close</string>
+    <string name="not_revoke">could not revoke</string>
 
 </resources>

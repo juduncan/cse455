@@ -85,6 +85,7 @@ public class MapFragment extends SupportMapFragment
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
+
         mGoogleMap=googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
@@ -231,6 +232,9 @@ public class MapFragment extends SupportMapFragment
             // permissions this app might request
         }
     }
+    protected void displayReceivedData(String message)
+    {
 
+    }
 }
 

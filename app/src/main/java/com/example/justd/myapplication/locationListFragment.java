@@ -25,6 +25,7 @@ import java.util.List;
  */
 
 public class locationListFragment extends ListFragment implements AdapterView.OnItemClickListener {
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), menuItems);
         setListAdapter(adapter);
+
 
 
        //final ArrayList<String> menuList = new ArrayList<String>();

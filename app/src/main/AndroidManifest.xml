@@ -57,7 +57,8 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainMapFrag"></activity>
+        <activity android:name=".MainMapFrag" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>
