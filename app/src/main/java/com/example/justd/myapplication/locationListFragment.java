@@ -1,6 +1,7 @@
 package com.example.justd.myapplication;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
@@ -33,7 +34,12 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
+    OnItemSelectedListener mCallback;
 
+    // Container Activity must implement this interface
+    public interface OnItemSelectedListener {
+        public void onArticleSelected(int position);
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -63,7 +69,8 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] placeholder = new String[]{};
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         String item = (String) getListAdapter().getItem(position);
-        Log.d("Clicked: ", item);
+        //Log.d("Clicked: ", item);
+        mCallback.onArticleSelected(position);
         switch (item) {
             case "Buildings":
                 String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall"};
@@ -89,7 +96,20 @@ public class locationListFragment extends ListFragment implements AdapterView.On
             setListAdapter(adapter);
     }
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d("test", "test insided on attach ");
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            Log.d("try ", "being called");
+            mCallback = (OnItemSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 

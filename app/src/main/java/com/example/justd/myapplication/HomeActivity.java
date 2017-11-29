@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,7 +21,7 @@ import android.view.MenuItem;
 import static android.app.PendingIntent.getActivity;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener , locationListFragment.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,14 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+    public void onArticleSelected(int position) {
+        Fragment fragment = null;
+        fragment = new MapFragment();
+        Log.d("inside home activity", "onArticleSelected: ");
+        MapFragment locFrag = (MapFragment)
+                getSupportFragmentManager().findFragmentById(R.id.content_frame);
 
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

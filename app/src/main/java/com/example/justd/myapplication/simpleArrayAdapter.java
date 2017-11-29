@@ -33,7 +33,7 @@ public class simpleArrayAdapter extends ArrayAdapter<String> {
         textView.setText(values[position]);
         // Change the icon for Windows and iPhone
         String s = values[position];
-        Log.d("value simpleadapter: ", s);
+        //Log.d("value simpleadapter: ", s);
        if (s.startsWith("Buildings") || s.startsWith("Food")|| s.startsWith("Services"))
          {
              imageView.setImageResource(R.drawable.mr_ic_play_light);
