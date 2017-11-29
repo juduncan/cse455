@@ -70,7 +70,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         String item = (String) getListAdapter().getItem(position);
         //Log.d("Clicked: ", item);
-        mCallback.onArticleSelected(position);
+        //mCallback.onArticleSelected(position);
         switch (item) {
             case "Buildings":
                 String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall"};
@@ -103,8 +103,8 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         // This makes sure that the container activity has implemented
         // the callback interface. If not, it throws an exception
         try {
-            Log.d("try ", "being called");
-            mCallback = (OnItemSelectedListener) context;
+           Log.d("try ", "being called");
+           // mCallback = (OnItemSelectedListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
                     + " must implement OnHeadlineSelectedListener");
