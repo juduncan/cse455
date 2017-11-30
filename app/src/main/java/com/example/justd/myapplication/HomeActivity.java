@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import static android.app.PendingIntent.getActivity;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener , locationListFragment.OnItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener , locationListFragment.OnListItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,12 +108,12 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    public void onArticleSelected(int position) {
+    public void ItemSelected(int position) {
         Fragment fragment = null;
         fragment = new MapFragment();
         Log.d("inside home activity", "onArticleSelected: ");
-        MapFragment locFrag = (MapFragment)
-                getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        //MapFragment locFrag = (MapFragment)
+          //      getSupportFragmentManager().findFragmentById(R.id.content_frame);
 
     }
 

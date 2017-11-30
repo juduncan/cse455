@@ -34,11 +34,11 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
-    OnItemSelectedListener mCallback;
+    OnListItemSelectedListener mCallback;
 
     // Container Activity must implement this interface
-    public interface OnItemSelectedListener {
-        public void onArticleSelected(int position);
+    public interface OnListItemSelectedListener {
+        public void ItemSelected(int pos);
     }
 
     @Override
@@ -48,19 +48,6 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), menuItems);
         setListAdapter(adapter);
-
-
-
-       //final ArrayList<String> menuList = new ArrayList<String>();
-       // for (int i=0; i<menuItems.length; ++i){
-        //    menuList.add(menuItems[i]);
-       // }
-       // final StableArrayAdapter sadapter = new
-         //       StableArrayAdapter(getActivity(),R.layout.row_layout,R.id.label,menuList);
-        //setListAdapter(sadapter);
-       // ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-              //  R.array.Categories, android.R.layout.simple_list_item_1);
-        //setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
@@ -69,19 +56,24 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] placeholder = new String[]{};
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         String item = (String) getListAdapter().getItem(position);
-        //Log.d("Clicked: ", item);
-        //mCallback.onArticleSelected(position);
+        Log.d("Clicked: ", item);
+         mCallback.ItemSelected(position);
         switch (item) {
             case "Buildings":
-                String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall"};
+                String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall", "Faculty Office Building", "Student Health Center", "Coussoulis Arena", "Murillo Family Observatory", "Performing Arts/Theatre/Recital Hall", "Physical Education", "Parking Structure West", "Parking Structure East", "Physical Science", "Santos Manuel Student Union", "Serrano Village", "University Police", "University Village" };
                 placeholder = buildings;
                 break;
             case"Food":
-                String[] food = new String[]{".. back", "Pizza Hut", "Wing Stop", "Taco Bell"};
+                String[] food = new String[]{".. back", "Pizza Hut", "Stir Fresh", "Wing Stop", "Taco Bell", "Starbucks", "Sub Connection", "Simply to go", "Wow Cafe", "The Market Place", "Coyote Market", "Fired Up", "Ignite Grill", "The Blue Coyote"  };
                 placeholder = food;
+                break;
+            case"Services":
+                String[] services = new String[]{".. back", "Campus Assessment, Response and Education team", "Career Center", "Computer Labs", "Counseling and Psychologocial Services", "Cross Cultural Center", "Library", "Ombuds Services", "Technology and Support Center", "Student Financial Services", "Testing Office", "Tutoring Center", "Veterans Success Center", "Womens Resource center", "Writing Center"};
+                placeholder = services;
                 break;
             case ".. back":
                 placeholder = menuItems;
+                break;
             default:
                 Fragment fragment = null;
                 fragment = new MapFragment();
@@ -104,7 +96,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         // the callback interface. If not, it throws an exception
         try {
            Log.d("try ", "being called");
-           // mCallback = (OnItemSelectedListener) context;
+          mCallback = (OnListItemSelectedListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
                     + " must implement OnHeadlineSelectedListener");
