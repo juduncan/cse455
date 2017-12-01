@@ -2,6 +2,7 @@ package com.example.justd.myapplication;
 
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -36,8 +37,10 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.justd.myapplication.R.id.map;
@@ -58,7 +61,7 @@ public class MapFragment extends SupportMapFragment
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
-
+    List<LatLng> ls_pos=new ArrayList<>();
     @Override
     public void onResume() {
         super.onResume();
@@ -87,9 +90,22 @@ public class MapFragment extends SupportMapFragment
     {
 
         mGoogleMap=googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        // Add a marker in Sydney and move the camera
+        LatLng csusb = new LatLng(34.1802966,-117.3256387);
+        LatLng CollegeofEducation = new LatLng(34.1832517,-117.3219698);
+        LatLng JackBrown = new LatLng(34.180963,-117.3211841);
+        LatLng Library = new LatLng(34.1825312,-117.324152);
+        mGoogleMap.addMarker(new MarkerOptions().position(csusb).title("CSUSB Campus"));
+        mGoogleMap.addMarker(new MarkerOptions().position(CollegeofEducation).title("College of Education"));
+        mGoogleMap.addMarker(new MarkerOptions().position(JackBrown).title("Jack Brown"));
+        mGoogleMap.addMarker(new MarkerOptions().position(Library).title("Library"));
 
-               //Initialize Google Play Services
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(csusb));
+        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+        mGoogleMap.setBuildingsEnabled(true);
+
+        //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(getActivity(),
                     android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -105,6 +121,7 @@ public class MapFragment extends SupportMapFragment
         else {
             buildGoogleApiClient();
             mGoogleMap.setMyLocationEnabled(true);
+
         }
 
     }
@@ -121,8 +138,8 @@ public class MapFragment extends SupportMapFragment
     @Override
     public void onConnected(Bundle bundle) {
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
+       // mLocationRequest.setInterval(1000);
+      //  mLocationRequest.setFastestInterval(1000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         if (ContextCompat.checkSelfPermission(getActivity(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -155,7 +172,7 @@ public class MapFragment extends SupportMapFragment
 
 
         //move map camera
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
+     //   mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));
 
 
     }
