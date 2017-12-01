@@ -18,10 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import static android.app.PendingIntent.getActivity;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener , locationListFragment.OnListItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +110,6 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    public void ItemSelected(int position) {
-        Fragment fragment = null;
-        fragment = new MapFragment();
-        Log.d("inside home activity", "onArticleSelected: ");
-        //MapFragment locFrag = (MapFragment)
-          //      getSupportFragmentManager().findFragmentById(R.id.content_frame);
-
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

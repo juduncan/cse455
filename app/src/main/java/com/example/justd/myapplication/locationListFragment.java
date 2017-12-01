@@ -34,7 +34,6 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
-    OnListItemSelectedListener mCallback;
 
     // Container Activity must implement this interface
     public interface OnListItemSelectedListener {
@@ -57,7 +56,6 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
         String item = (String) getListAdapter().getItem(position);
         Log.d("Clicked: ", item);
-         mCallback.ItemSelected(position);
         switch (item) {
             case "Buildings":
                 String[] buildings = new String[]{".. back", "Jack Brown", "Library", "University Hall", "Faculty Office Building", "Student Health Center", "Coussoulis Arena", "Murillo Family Observatory", "Performing Arts/Theatre/Recital Hall", "Physical Education", "Parking Structure West", "Parking Structure East", "Physical Science", "Santos Manuel Student Union", "Serrano Village", "University Police", "University Village" };
@@ -80,7 +78,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.content_frame, fragment);
                 ft.commit();
-            placeholder = menuItems;
+            //placeholder = menuItems;
 
 
         }
@@ -88,20 +86,6 @@ public class locationListFragment extends ListFragment implements AdapterView.On
             setListAdapter(adapter);
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.d("test", "test insided on attach ");
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
-        try {
-           Log.d("try ", "being called");
-          mCallback = (OnListItemSelectedListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement OnHeadlineSelectedListener");
-        }
-    }
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
 
