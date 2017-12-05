@@ -23,7 +23,7 @@ import java.util.List;
 import static android.app.PendingIntent.getActivity;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener  {
+        implements NavigationView.OnNavigationItemSelectedListener , locationListFragment.fragComm{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,10 +117,12 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         displaySelectedScreen(id);
-
-
         return true;
     }
 
 
+    @Override
+    public void passLoc(int loc) {
+
+    }
 }

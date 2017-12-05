@@ -35,10 +35,14 @@ public class locationListFragment extends ListFragment implements AdapterView.On
         return view;
     }
 
+    fragComm mCallback;
+
     // Container Activity must implement this interface
-    public interface OnListItemSelectedListener {
-        public void ItemSelected(int pos);
+    public interface fragComm {
+        public void passLoc(int loc);
     }
+
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -99,6 +103,8 @@ public class locationListFragment extends ListFragment implements AdapterView.On
 
         }
         }
+
+
 
         @Override
         public long getItemId(int position) {
