@@ -34,7 +34,7 @@ public class simpleArrayAdapter extends ArrayAdapter<String> {
         // Change the icon for Windows and iPhone
         String s = values[position];
         //Log.d("value simpleadapter: ", s);
-       if (s.startsWith("Buildings") || s.startsWith("Food")|| s.startsWith("Services")|| s.startsWith("..back")
+       if (s.startsWith("Buildings") || s.startsWith("Food")|| s.startsWith("Services")|| s.startsWith(".. back")
                || s.startsWith("Clubs")|| s.startsWith("Shops")|| s.startsWith("Other"))
          {
              imageView.setImageResource(R.drawable.mr_ic_play_light);

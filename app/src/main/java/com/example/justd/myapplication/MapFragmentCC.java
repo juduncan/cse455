@@ -31,7 +31,7 @@ import java.util.List;
  * Created by justd on 10/23/2017.
  */
 
-public class MapFragmentLib extends SupportMapFragment
+public class MapFragmentCC extends SupportMapFragment
         implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
@@ -74,10 +74,13 @@ public class MapFragmentLib extends SupportMapFragment
         mGoogleMap=googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         // Add a marker in Sydney and move the camera
-        LatLng Library = new LatLng(34.1825312,-117.324152);
-        mGoogleMap.addMarker(new MarkerOptions().position(Library).title("Library"));
 
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(Library));
+        LatLng careerCenter = new LatLng(34.180506,-117.323819);
+
+        mGoogleMap.addMarker(new MarkerOptions().position(careerCenter).title("Career Center"));
+
+
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(careerCenter));
         mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
         mGoogleMap.setBuildingsEnabled(true);
 

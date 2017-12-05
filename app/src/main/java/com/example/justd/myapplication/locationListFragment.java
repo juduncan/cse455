@@ -70,7 +70,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
                 placeholder = food;
                 break;
             case"Services":
-                String[] services = new String[]{".. back", "Campus Assessment, Response and Education team", "Career Center", "Computer Labs", "Counseling and Psychologocial Services", "Cross Cultural Center", "Library", "Ombuds Services", "Technology and Support Center", "Student Financial Services", "Testing Office", "Tutoring Center", "Veterans Success Center", "Womens Resource center", "Writing Center"};
+                String[] services = new String[]{".. back", "Career Center", "Computer Labs", "Counseling and Psychologocial Services", "Cross Cultural Center", "Library", "Ombuds Services", "Technology and Support Center", "Student Financial Services", "Testing Office", "Tutoring Center", "Veterans Success Center", "Womens Resource center", "Writing Center", "Campus Assessment, Response and Education team",};
                 placeholder = services;
                 break;
             case ".. back":
@@ -88,6 +88,30 @@ public class locationListFragment extends ListFragment implements AdapterView.On
                 FragmentTransaction ftlib = getFragmentManager().beginTransaction();
                 ftlib.replace(R.id.content_frame, fragment);
                 ftlib.commit();
+                break;
+            case "Pizza Hut":
+                fragment = new MapFragmentPH();
+                FragmentTransaction phlib = getFragmentManager().beginTransaction();
+                phlib.replace(R.id.content_frame, fragment);
+                phlib.commit();
+                break;
+            case "Stir Fresh":
+                fragment = new MapFragmentSF();
+                FragmentTransaction ftsf = getFragmentManager().beginTransaction();
+                ftsf.replace(R.id.content_frame, fragment);
+                ftsf.commit();
+                break;
+            case "Computer Labs":
+                fragment = new MapFragmentcl();
+                FragmentTransaction ftcl = getFragmentManager().beginTransaction();
+                ftcl.replace(R.id.content_frame, fragment);
+                ftcl.commit();
+                break;
+            case "Career Center":
+                fragment = new MapFragmentCC();
+                FragmentTransaction ftcc = getFragmentManager().beginTransaction();
+                ftcc.replace(R.id.content_frame, fragment);
+                ftcc.commit();
                 break;
             default:
                 fragment = new MapFragment();
