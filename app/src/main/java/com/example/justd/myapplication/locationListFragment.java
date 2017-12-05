@@ -48,7 +48,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle(" Find Places");
-        String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
+        String[] menuItems = new String[] { "Buildings" , "Food" , "Services" , "Clubs", "Shops", "Other"};
         simpleArrayAdapter adapter = new simpleArrayAdapter(getActivity(), menuItems);
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
@@ -57,7 +57,7 @@ public class locationListFragment extends ListFragment implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
         String[] placeholder = new String[]{};
-        String[] menuItems = new String[] { "Buildings" , "Food" , "Services"};
+        String[] menuItems = new String[] { "Buildings" , "Food" , "Services" , "Clubs", "Shops", "Other"};
         String item = (String) getListAdapter().getItem(position);
         Log.d("Clicked: ", item);
         switch (item) {
@@ -76,8 +76,20 @@ public class locationListFragment extends ListFragment implements AdapterView.On
             case ".. back":
                 placeholder = menuItems;
                 break;
-            default:
+            case "Jack Brown":
                 Fragment fragment = null;
+                fragment = new MapFragmentJackBrown();
+                FragmentTransaction ftjb = getFragmentManager().beginTransaction();
+                ftjb.replace(R.id.content_frame, fragment);
+                ftjb.commit();
+                break;
+            case "Library":
+                fragment = new MapFragmentLib();
+                FragmentTransaction ftlib = getFragmentManager().beginTransaction();
+                ftlib.replace(R.id.content_frame, fragment);
+                ftlib.commit();
+                break;
+            default:
                 fragment = new MapFragment();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.content_frame, fragment);
