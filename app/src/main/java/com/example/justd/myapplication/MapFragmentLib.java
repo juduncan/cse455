@@ -75,8 +75,20 @@ public class MapFragmentLib extends SupportMapFragment
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         // Add a marker in Sydney and move the camera
         LatLng Library = new LatLng(34.1825312,-117.324152);
-        mGoogleMap.addMarker(new MarkerOptions().position(Library).title("Library"));
+        LatLng csusb = new LatLng(34.1802966,-117.3256387);
+        LatLng CollegeofEducation = new LatLng(34.1832517,-117.3219698);
+        LatLng JackBrown = new LatLng(34.180963,-117.3211841);
+        LatLng careerCenter = new LatLng(34.180506,-117.323819);
+        LatLng PizzaHut = new LatLng(34.181264,-117.323375);
 
+        mGoogleMap.addMarker(new MarkerOptions().position(csusb).title("CSUSB Campus"));
+        mGoogleMap.addMarker(new MarkerOptions().position(CollegeofEducation).title("College of Education").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        mGoogleMap.addMarker(new MarkerOptions().position(JackBrown).title("Jack Brown").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        mGoogleMap.addMarker(new MarkerOptions().position(Library).title("Library").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        mGoogleMap.addMarker(new MarkerOptions().position(PizzaHut).title("Stir Fresh").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mGoogleMap.addMarker(new MarkerOptions().position(PizzaHut).title("Pizza Hut").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mGoogleMap.addMarker(new MarkerOptions().position(JackBrown).title("Computer Lab").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        mGoogleMap.addMarker(new MarkerOptions().position(careerCenter).title("Career Center").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(Library));
         mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
         mGoogleMap.setBuildingsEnabled(true);
